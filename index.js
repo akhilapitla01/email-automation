@@ -78,28 +78,6 @@ function Person(Name, DOB, Email, Marr, Anv) {
 }
 
 
-
-functions.http('helloHttp', async (req, res) => {
-
-    let data = await getAnniversaryData();
-    
-    if(req.url == "/anni") {
-
-        for(let i = 0; i < data.length; i++) {
-            sendMailToClient(data[i])
-            .then(result => console.log("Mail is sent", result))
-            .catch(err => console.log(err.message));
-            
-        }
-
-        res.send();
-        
-    } else {
-        res.send("<h1>Page Not Found!</h1>")
-    }
-});
-
-
  
 
 const CLIENT_ID = '1068914366323-9vaoadmqgggki0g0t7k5400biad087hb.apps.googleusercontent.com'
