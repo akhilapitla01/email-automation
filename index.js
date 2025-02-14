@@ -106,22 +106,7 @@ const REFRESH_TOKEN = '1//046I3DFuvzY0-CgYIARAAGAQSNwF-L9IrprLJ65IcP5AegJVkQkvhU
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
 
-async function sendMailToClient(data) {
 
-    try {
-
-        const accessToken = await oAuth2Client.getAccessToken();
-        const transport = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                type: 'OAuth2',
-                user: 'indraindrani1999@gmail.com',
-                clientId: CLIENT_ID,
-                clientSecret: CLIENT_SECRET,
-                refreshToken: REFRESH_TOKEN,
-                accessToken: accessToken
-            }
-        });
 
         const mailOptions = {
             from: 'Indrajit <indraindrani1999@gmail.com>',
